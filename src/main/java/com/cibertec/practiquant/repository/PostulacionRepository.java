@@ -19,6 +19,11 @@ public interface PostulacionRepository extends JpaRepository<Postulacion, Intege
 			@Param("p_estado") String estado);
 	
 	
+	@Query("select p from Postulacion p where "
+			+ "( p.estado is 1")
+	public abstract List<Postulacion> listaPostulacionActivo();
+	
+	
 
 	
 

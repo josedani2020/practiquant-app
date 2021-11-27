@@ -25,4 +25,9 @@ public interface PracticaRepository extends JpaRepository<Practica, Integer>{
 
 
 	public abstract List<Practica> findByDetallepractica(String detallepractica);
+
+
+	@Query("select p from Practica p where "
+			+ "( p.estado is 1")
+	public abstract List<Practica> listaPracticaActiva();
 }

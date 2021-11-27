@@ -37,4 +37,10 @@ public class PracticaServiceImpl implements PracticaService{
 	public List<Practica> listaPractica() {
 		return repository.findAll();
 	}
+
+	@Override
+	public List<Practica> listaPracticaActiva() {
+		// TODO Auto-generated method stub
+		return repository.listaPracticaActiva();
+	}
 }

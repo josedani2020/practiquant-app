@@ -10,4 +10,5 @@ public interface PracticaService {
 	public abstract List<Practica> listaPorDetallepracticaLike(String detallepractica);
 	public abstract List<Practica> listaPorDetallepractica(String detallepractica);
 	public abstract List<Practica> listaPractica(String detallepractica, int codpractica, String requisitopractica);
+	public abstract List<Practica> listaPracticaActiva();
 }

@@ -45,4 +45,16 @@ public class PostulacionServiceImpl implements PostulacionService{
 		return repository.findAll();
 	}
 
+	
+	
+	
+	@Override
+	public List<Postulacion> listaPostulacionActivo() {
+		// TODO Auto-generated method stub
+		return repository.listaPostulacionActivo();
+	}
+	
+	
+	
+
 }

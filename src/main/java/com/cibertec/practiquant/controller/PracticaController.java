@@ -86,4 +86,12 @@ public class PracticaController {
 		}
 		return ResponseEntity.ok(lista);
 	}
+	
+	
+	@GetMapping("/listaPracticaActiva")
+	@ResponseBody
+	public ResponseEntity<List<Practica>> listaPostulacionActivo(){
+		List<Practica> listaPractica = practicaService.listaPracticaActiva();
+		return ResponseEntity.ok(listaPractica);
+	} 
 }

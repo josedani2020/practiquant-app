@@ -85,4 +85,16 @@ public class PostulacionController {
 		}
 		return ResponseEntity.ok(lista);
 	}
+	
+	
+	
+	///////////////////
+	
+	
+	@GetMapping("/listaPostulacionActivo")
+	@ResponseBody
+	public ResponseEntity<List<Postulacion>> listaPostulacionActivo(){
+		List<Postulacion> listaPostulacion = postulacionService.listaPostulacionActivo();
+		return ResponseEntity.ok(listaPostulacion);
+	} 
 }
