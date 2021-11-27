@@ -26,8 +26,8 @@ public class Practica {
 	private int codpractica;
 	private String detallepractica;
 	private String requisitopractica;
-	@JsonFormat(pattern = "yyyy-MM-dd", timezone="America/Lima" )
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechatermino;
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })

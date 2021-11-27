@@ -52,23 +52,28 @@ public class PostulacionController {
 	@PutMapping("/actualizaPostulacion")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> actualizaPostulacion(@RequestBody Postulacion obj){
+		
+		
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getCodpostulacion() == 0) {
-				salida.put("mensaje", "El ID del Postulacion debe ser diferente de cera");
-				return ResponseEntity.ok(salida);
-			}
-			Postulacion objSalida = postulacionService.insertaActualizaPostulacion(obj);
-			if(objSalida == null) {
-				salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
+			if (obj.getCodpostulacion() != 0) {
+				Postulacion objSalida = postulacionService.insertaActualizaPostulacion(obj);
+				if (objSalida == null) {
+					salida.put("mensaje", Constantes.MENSAJE_ACT_ERROR);
+				} else {
+					salida.put("mensaje", "Se actualizo correctamente");
+				}	
 			}else {
-				salida.put("mensaje", Constantes.MENSAJE_REG_EXITOSO);
+				salida.put("mensaje", "El ID del Proveedor debe ser diferente cero");
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 		}
 		return ResponseEntity.ok(salida);
+		
+		
+		
 	}
 	
 	@GetMapping("/listarPostulacionPorDetalleLike/{nom}")

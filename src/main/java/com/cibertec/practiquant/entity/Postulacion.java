@@ -25,8 +25,8 @@ public class Postulacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codpostulacion;
 	private String detallepostulante;
-	@JsonFormat(pattern = "yyyy-MM-dd", timezone="America/Lima" )
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	
+	@JsonFormat(pattern = "yyyy-MM-dd" )
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechapostulacion;
 	

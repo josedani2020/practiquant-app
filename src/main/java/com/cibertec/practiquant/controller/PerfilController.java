@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cibertec.practiquant.entity.Perfil;
+import com.cibertec.practiquant.entity.Postulacion;
 import com.cibertec.practiquant.service.PerfilService;
 import com.cibertec.practiquant.utils.Constantes;
 
@@ -52,7 +53,7 @@ public class PerfilController {
 	@PutMapping("/actualizarPerfil")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> actualizaPerfil(@RequestBody Perfil obj){
-		Map<String, Object> salida = new HashMap<>();
+		/*Map<String, Object> salida = new HashMap<>();
 		try {
 			if(obj.getCodperfil() == 0) {
 				salida.put("mensaje", "El ID del Perfil deb ser diferente de cera");
@@ -68,7 +69,26 @@ public class PerfilController {
 			e.printStackTrace();
 			salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 		}
+		return ResponseEntity.ok(salida);*/
+		Map<String, Object> salida = new HashMap<>();
+		try {
+			if (obj.getCodperfil() != 0) {
+				Perfil objSalida = perfilService.insertaActualizaPerfil(obj);
+				if (objSalida == null) {
+					salida.put("mensaje", Constantes.MENSAJE_ACT_ERROR);
+				} else {
+					salida.put("mensaje", "Se actualizo correctamente");
+				}	
+			}else {
+				salida.put("mensaje", "El ID del Proveedor debe ser diferente cero");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
+		}
 		return ResponseEntity.ok(salida);
+		
+		
 	}
 	
 	@GetMapping("/listaPerfilPorNombreLike/{nom}")

@@ -52,23 +52,28 @@ public class PracticaController {
 	@PutMapping("/actualizaPractica")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> actualizaPractica(@RequestBody Practica obj){
+		
+		
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getCodpractica() == 0) {
-				salida.put("mensaje", "El ID del Perfil deb ser diferente de cera");
-				return ResponseEntity.ok(salida);
-			}
-			Practica objSalida = practicaService.insertaActualizaPractica(obj);
-			if(objSalida == null) {
-				salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
+			if (obj.getCodpractica() != 0) {
+				Practica objSalida = practicaService.insertaActualizaPractica(obj);
+				if (objSalida == null) {
+					salida.put("mensaje", Constantes.MENSAJE_ACT_ERROR);
+				} else {
+					salida.put("mensaje", "Se actualizo correctamente");
+				}	
 			}else {
-				salida.put("mensaje", Constantes.MENSAJE_REG_EXITOSO);
+				salida.put("mensaje", "El ID del Proveedor debe ser diferente cero");
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 		}
 		return ResponseEntity.ok(salida);
+		
+		
+		
 	}
 	
 	@GetMapping("/listaPracticaPorDetalleLike/{nom}")

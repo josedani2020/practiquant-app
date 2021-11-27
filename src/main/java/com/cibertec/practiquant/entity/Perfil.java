@@ -25,8 +25,7 @@ public class Perfil {
 	private String nombre;
 	private String apellido;
 	
-	@JsonFormat(pattern = "yyyy-MM-dd", timezone="America/Lima" )
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd" )
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fnacim;
 	private String resumen;
