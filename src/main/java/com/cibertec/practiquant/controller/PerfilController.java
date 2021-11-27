@@ -53,7 +53,7 @@ public class PerfilController {
 	public ResponseEntity<Map<String, Object>> actualizaPerfil(@RequestBody Perfil obj){
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getEstado() == 0) {
+			if(obj.getCodperfil() == 0) {
 				salida.put("mensaje", "El ID del Perfil deb ser diferente de cera");
 				return ResponseEntity.ok(salida);
 			}

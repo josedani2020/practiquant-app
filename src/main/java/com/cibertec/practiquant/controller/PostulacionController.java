@@ -53,7 +53,7 @@ public class PostulacionController {
 	public ResponseEntity<Map<String, Object>> actualizaPostulacion(@RequestBody Postulacion obj){
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getEstado() == 0) {
+			if(obj.getCodpostulacion() == 0) {
 				salida.put("mensaje", "El ID del Postulacion debe ser diferente de cera");
 				return ResponseEntity.ok(salida);
 			}

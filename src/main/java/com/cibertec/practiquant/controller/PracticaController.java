@@ -53,7 +53,7 @@ public class PracticaController {
 	public ResponseEntity<Map<String, Object>> actualizaPractica(@RequestBody Practica obj){
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getEstado() == 0) {
+			if(obj.getCodpractica() == 0) {
 				salida.put("mensaje", "El ID del Perfil deb ser diferente de cera");
 				return ResponseEntity.ok(salida);
 			}
