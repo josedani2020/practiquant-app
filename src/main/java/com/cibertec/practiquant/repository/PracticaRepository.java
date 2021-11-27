@@ -28,6 +28,6 @@ public interface PracticaRepository extends JpaRepository<Practica, Integer>{
 
 
 	@Query("select p from Practica p where "
-			+ "( p.estado is 1")
+			+ "( p.estado is 1)")
 	public abstract List<Practica> listaPracticaActiva();
 }

@@ -72,6 +72,7 @@ public class PostulacionController {
 	}
 	
 	@GetMapping("/listarPostulacionPorDetalleLike/{nom}")
+	@ResponseBody
 	public ResponseEntity<List<Postulacion>> listarPostulacionPorDetalleLike(@PathVariable("nom") String nom){
 		System.out.println("nom");
 		List<Postulacion> lista = null;
@@ -89,7 +90,7 @@ public class PostulacionController {
 	
 	
 	
-	///////////////////
+	
 	
 	
 	@GetMapping("/listaPostulacionActivo")

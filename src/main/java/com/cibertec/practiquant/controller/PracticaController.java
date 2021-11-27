@@ -91,7 +91,7 @@ public class PracticaController {
 	
 	@GetMapping("/listaPracticaActiva")
 	@ResponseBody
-	public ResponseEntity<List<Practica>> listaPostulacionActivo(){
+	public ResponseEntity<List<Practica>> listaPracticaActiva(){
 		List<Practica> listaPractica = practicaService.listaPracticaActiva();
 		return ResponseEntity.ok(listaPractica);
 	} 

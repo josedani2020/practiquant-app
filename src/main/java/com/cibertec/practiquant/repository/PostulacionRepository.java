@@ -20,7 +20,7 @@ public interface PostulacionRepository extends JpaRepository<Postulacion, Intege
 	
 	
 	@Query("select p from Postulacion p where "
-			+ "( p.estado is 1")
+			+ "( p.estado is 1)")
 	public abstract List<Postulacion> listaPostulacionActivo();
 	
 	
